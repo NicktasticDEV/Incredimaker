@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2a97c169bd7264f8558fde66290fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BPM: 100
+  BPM: 120
   playSound: 1
   isPlaying: 1
   beatSound: {fileID: 8300000, guid: e9c087c76993e4f5caf19d1fd1ec3f43, type: 3}
