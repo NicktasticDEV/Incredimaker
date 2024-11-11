@@ -19,11 +19,7 @@ public class ModManager : MonoBehaviour
         {
             Destroy(gameObject);  // Destroy duplicate instances
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         loadMods();
     }
 
