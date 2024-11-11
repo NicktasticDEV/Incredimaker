@@ -13,7 +13,7 @@ public class Metronome : MonoBehaviour
     private List<AudioSource> bpmAudioSources = new List<AudioSource>();
     private const int defaultBPM = 120;      // Default BPM of audio sources
     private int previousBPM;
-    private bool isPlaying = true;  // Track play state
+    public bool isPlaying = true;  // Track play state
 
     // Sounds
     [SerializeField] private AudioClip beatSound;
@@ -46,7 +46,6 @@ public class Metronome : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Persist across scenes
         }
         else
         {
@@ -155,20 +154,8 @@ public class Metronome : MonoBehaviour
     {
         isPlaying = true;
 
-        if (bpmAudioSources.Count > 0)
-        {
-            // Calculate the next step time based on the current audio time
-            double audioTime = bpmAudioSources[0].time;
-            double stepProgress = (audioTime % stepInterval) / stepInterval;
-            nextStepTime = AudioSettings.dspTime + (stepInterval - (stepProgress * stepInterval));
-        }
-        else
-        {
-            // Calculate the next step time based on the elapsed time since the last step
-            double timeSinceLastStep = AudioSettings.dspTime - (nextStepTime - stepInterval);
-            double stepProgress = timeSinceLastStep / stepInterval;
-            nextStepTime = AudioSettings.dspTime + (stepInterval - (stepProgress * stepInterval));
-        }
+        // Set the next step time to the current DSP time plus the step interval
+        nextStepTime = AudioSettings.dspTime + stepInterval;
 
         onPlay?.Invoke();
 
