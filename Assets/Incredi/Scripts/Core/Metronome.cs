@@ -196,13 +196,5 @@ public class Metronome : MonoBehaviour
 
         onReset?.Invoke();
     }
-
-    // Returns how long til the next Count measure
-    public double getTimeTilNextMeasure(int Count)
-    {
-        double time = AudioSettings.dspTime;
-        double nextMeasureTime = nextStepTime + (beatInterval * beatsPerMeasure * Count);
-        return nextMeasureTime - time;
-    }
     
 }

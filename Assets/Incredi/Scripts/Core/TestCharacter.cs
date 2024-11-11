@@ -14,10 +14,8 @@ public class TestCharacter : MonoBehaviour
     [SerializeField] private Image timeTilPlayRadialProgress;
     private AudioClip vocalClip;
 
-    private bool readyToPlay = false;
-    private bool isPlaying = false;
-
-    private float timeTilPlay = 0;
+    public bool readyToPlay = false;
+    public bool isPlaying = false;
 
     private List<Character> characters = new List<Character>();
     private Character selectedCharacter;
