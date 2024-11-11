@@ -9,7 +9,7 @@ public class Metronome : MonoBehaviour
 
     public int BPM = 120;                   // Beats per minute
     public bool playSound = true;           // Play metronome sound
-    private float beatInterval;              // Time between beats in seconds
+    [HideInInspector] public float beatInterval;              // Time between beats in seconds
     private List<AudioSource> bpmAudioSources = new List<AudioSource>();
     private const int defaultBPM = 120;      // Default BPM of audio sources
     private int previousBPM;
@@ -36,7 +36,8 @@ public class Metronome : MonoBehaviour
     [HideInInspector]
     public int measureCount = 0;         // Counts the measures
     
-    private int beatsPerMeasure = 4;       // Number of beats in one measure
+    [HideInInspector] 
+    public int beatsPerMeasure = 4;       // Number of beats in one measure
     private int stepsPerBeat = 4;          // Number of steps per beat
     private float stepInterval;           // Time between steps
     private double nextStepTime;           // Tracks the next step time
@@ -194,6 +195,14 @@ public class Metronome : MonoBehaviour
         }
 
         onReset?.Invoke();
+    }
+
+    // Returns how long til the next Count measure
+    public double getTimeTilNextMeasure(int Count)
+    {
+        double time = AudioSettings.dspTime;
+        double nextMeasureTime = nextStepTime + (beatInterval * beatsPerMeasure * Count);
+        return nextMeasureTime - time;
     }
     
 }

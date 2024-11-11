@@ -130,5 +130,28 @@ public class ModManager : MonoBehaviour
         }
     }
 
+    // Get characters from specific mod function
+    public List<Character> GetCharactersFromModName(string modName)
+    {
+        foreach (Mod mod in mods)
+        {
+            if (mod.modName == modName)
+            {
+                return mod.characters;
+            }
+        }
+
+        return null;
+    }
+
+    public List<Character> GetCharactersFromModIndex(int modIndex)
+    {
+        if (modIndex < mods.Count)
+        {
+            return mods[modIndex].characters;
+        }
+
+        return null;
+    }
 
 }
