@@ -10,7 +10,14 @@ public class ModMetadata
     public string modDescription;
 }
 
-
+public class PNGSeqAnimation
+{
+    public string name;
+    public string path;
+    public int frameRate;
+    public bool loop;
+    public bool playOnAwake;
+}
 
 
 

@@ -15,6 +15,7 @@ public class ExternalImageSequencePlayer : MonoBehaviour
     public bool playOnAwake = true;
 
     private SpriteRenderer spriteRenderer;
+    private Coroutine playCoroutine;
 
     [HideInInspector]
     public Texture2D[] frames;
@@ -31,7 +32,7 @@ public class ExternalImageSequencePlayer : MonoBehaviour
 
         if (playOnAwake)
         {
-            StartCoroutine(play());
+            Play();
         }
     }
 
@@ -62,6 +63,38 @@ public class ExternalImageSequencePlayer : MonoBehaviour
         }
 
         // Set the first frame (Make sure width and height of sprite renderer is set to the width and height of the texture)
+        spriteRenderer.sprite = Sprite.Create(frames[0], new Rect(0, 0, frames[0].width, frames[0].height), new Vector2(0.5f, 0.5f));
+    }
+
+    public void Play()
+    {
+        if (playCoroutine == null)
+        {
+            playCoroutine = StartCoroutine(play());
+        }
+        else
+        {
+            StopCoroutine(playCoroutine);
+            playCoroutine = StartCoroutine(play());
+        }
+    }
+
+    public void Pause()
+    {
+        if (playCoroutine != null)
+        {
+            StopCoroutine(playCoroutine);
+            playCoroutine = null;
+        }
+    }
+
+    public void Reset()
+    {
+        if (playCoroutine != null)
+        {
+            StopCoroutine(playCoroutine);
+            playCoroutine = null;
+        }
         spriteRenderer.sprite = Sprite.Create(frames[0], new Rect(0, 0, frames[0].width, frames[0].height), new Vector2(0.5f, 0.5f));
     }
 
@@ -96,6 +129,8 @@ public class ExternalImageSequencePlayer : MonoBehaviour
 
             yield return null;
         }
+
+        playCoroutine = null;
     }
 
 }
