@@ -1,0 +1,13 @@
+{
+    "animations":
+    [
+        {
+            "name": "idle",
+            "path": "",
+            "frameRate": 24,
+            "loop": true,
+            "offset": [0, 0],
+            "scale": 1
+        }
+    ]
+}
