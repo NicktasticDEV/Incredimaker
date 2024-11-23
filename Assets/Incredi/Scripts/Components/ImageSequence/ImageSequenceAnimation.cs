@@ -16,18 +16,7 @@ public class ImageSequenceAnimation
     public float scale;
     public List<Texture2D> frames;
 
-    public ImageSequenceAnimation(string name, string path, int frameRate, bool loop, float[] offset, float scale)
-    {
-        this.name = name;
-        this.path = path;
-        this.frameRate = frameRate;
-        this.loop = loop;
-        this.offset = offset;
-        this.scale = scale;
-        this.frames = loadFrames();
-    }
-
-    public List<Texture2D> loadFrames()
+    public static List<Texture2D> loadFrames(string path)
     {
         if (string.IsNullOrEmpty(path))
         {
@@ -51,7 +40,7 @@ public class ImageSequenceAnimation
             return null;
         }
 
-        frames = new List<Texture2D>(filePaths.Length);
+        List<Texture2D> frames = new List<Texture2D>(filePaths.Length);
 
         for (int i = 0; i < filePaths.Length; i++)
         {
@@ -64,4 +53,10 @@ public class ImageSequenceAnimation
         return frames;
     }
 
+}
+
+[System.Serializable]
+public class ImageSequenceAnimations
+{
+    public List<ImageSequenceAnimation> animations;
 }

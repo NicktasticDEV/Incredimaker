@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - BPMAudio
+  - BPMAudioUnmanaged
   layers:
   - Default
   - TransparentFX

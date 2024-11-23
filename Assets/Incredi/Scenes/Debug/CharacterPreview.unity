@@ -4357,6 +4357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5018683360555893642, guid: e320fe516f7f94a48808530c2607878e, type: 3}
+      propertyPath: mods.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8696220964767637131, guid: e320fe516f7f94a48808530c2607878e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

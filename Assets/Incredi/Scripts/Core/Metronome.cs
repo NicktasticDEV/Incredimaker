@@ -8,10 +8,11 @@ public class Metronome : MonoBehaviour
     public static Metronome Instance { get; private set; }  // Singleton instance
 
     public int BPM = 120;                   // Beats per minute
+    public int defaultBPM = 120;      // Default BPM of audio sources
     public bool playSound = true;           // Play metronome sound
     [HideInInspector] public float beatInterval;              // Time between beats in seconds
     private List<AudioSource> bpmAudioSources = new List<AudioSource>();
-    private const int defaultBPM = 120;      // Default BPM of audio sources
+    private List<AudioSource> bpmAudioSourcesUnmanaged = new List<AudioSource>();
     private int previousBPM;
     public bool isPlaying = true;  // Track play state
 
@@ -140,6 +141,16 @@ public class Metronome : MonoBehaviour
                 bpmAudioSources.Add(source);
             }
         }
+
+        GameObject[] audioObjectsUnmanaged = GameObject.FindGameObjectsWithTag("BPMAudioUnmanaged");
+        foreach (GameObject obj in audioObjectsUnmanaged)
+        {
+            AudioSource source = obj.GetComponent<AudioSource>();
+            if (source != null)
+            {
+                bpmAudioSourcesUnmanaged.Add(source);
+            }
+        }
     }
 
     private void UpdateAudioSourcesPitch()
@@ -149,21 +160,26 @@ public class Metronome : MonoBehaviour
         {
             source.pitch = newPitch;  // Adjust pitch to match current BPM
         }
+
+        foreach (AudioSource source in bpmAudioSourcesUnmanaged)
+        {
+            source.pitch = newPitch;  // Adjust pitch to match current BPM
+        }
     }
 
     public void Play()
     {
         isPlaying = true;
-
-        // Set the next step time to the current DSP time plus the step interval
-        nextStepTime = AudioSettings.dspTime + stepInterval;
+        //nextStepTime = AudioSettings.dspTime + stepInterval;
+        nextStepTime = AudioSettings.dspTime;
 
         onPlay?.Invoke();
 
         // Play all BPM audio sources
         foreach (AudioSource source in bpmAudioSources)
         {
-            source.Play();
+            //source.Play();
+            source.PlayScheduled(AudioSettings.dspTime);
         }
     }
 

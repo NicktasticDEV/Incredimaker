@@ -9,7 +9,7 @@ public class Character
     public int measureLength;
     public Texture2D thumbnail;
     public AudioClip voice;
-    public List<ImageSequenceAnimation> animations;
+    public ImageSequenceAnimations animations;
 }
 
 [System.Serializable]
