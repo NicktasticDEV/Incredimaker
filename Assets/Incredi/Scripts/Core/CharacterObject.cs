@@ -5,8 +5,13 @@ using UnityEngine;
 public class CharacterObject : MonoBehaviour
 {
     private AudioSource audioSource;
-    private SpriteRenderer characterImage;
+    [HideInInspector]
+    public SpriteRenderer characterImage;
     private ImageSequenceAnimator imageSequenceAnimator;
+    [SerializeField]
+    private Animator animator;
+    [HideInInspector]
+    public Collider2D interactCollider;
 
     public bool characterSet = false;
     public bool readyToPlay = false;
@@ -21,7 +26,6 @@ public class CharacterObject : MonoBehaviour
             if (_selectedCharacter != value)
             {
                 _selectedCharacter = value;
-                OnSelectedCharacterChanged();
             }
         }
     }
@@ -32,29 +36,17 @@ public class CharacterObject : MonoBehaviour
         audioSource = GetComponentInChildren<AudioSource>();
         characterImage = GetComponentInChildren<SpriteRenderer>();
         imageSequenceAnimator = GetComponentInChildren<ImageSequenceAnimator>();
+        interactCollider = GetComponentInChildren<Collider2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetCharacter(Character character)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnSelectedCharacterChanged()
-    {
-        Debug.Log("Selected character changed to: " + selectedCharacter.name);
-        imageSequenceAnimator.imageSequenceAnimations = selectedCharacter.animations;
-        audioSource.clip = selectedCharacter.voice;
+        imageSequenceAnimator.imageSequenceAnimations = character.animations;
+        audioSource.clip = character.voice;
         Stop();
 
         // Check if character is set to default or none
-        if (selectedCharacter.name == "Default" || selectedCharacter.name == "None")
+        if (character.name == "Default" || character.name == "None")
         {
             characterSet = false;
             readyToPlay = false;
@@ -64,6 +56,8 @@ public class CharacterObject : MonoBehaviour
             characterSet = true;
             readyToPlay = true;
         }
+
+        selectedCharacter = character;
     }
 
     public void Play(int startFrame = 0, float audioTime = 0)
@@ -93,5 +87,15 @@ public class CharacterObject : MonoBehaviour
         isPlaying = false;
         imageSequenceAnimator.PlayAnimation("idle");
         audioSource.Stop();
+    }
+
+    public void PlayInto()
+    {
+        animator.Play("Intro");
+    }
+
+    public void Visible(bool visible)
+    {
+        characterImage.enabled = visible;
     }
 }

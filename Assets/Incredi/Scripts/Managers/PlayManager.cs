@@ -9,6 +9,12 @@ public class PlayManager : MonoBehaviour
     public bool songPlaying = false;
     public bool paused = false;
     public int measureLength = 4;
+
+    public bool iconBeingDragged = false;
+    public string selectedCharacter = "";
+
+    [SerializeField]
+    private float introTime = 1.5f;
     
     void Awake()
     {
@@ -29,8 +35,7 @@ public class PlayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        
+        StartCoroutine(Intro());
     }
 
     // Update is called once per frame
@@ -55,6 +60,19 @@ public class PlayManager : MonoBehaviour
         {
             songPlaying = false;
         }
+
+        // Highlight character that cursor is over
+        foreach (CharacterObject character in characters)
+        {
+            if (character.interactCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            {
+                character.characterImage.material.SetColor("_TintColor", new Color(1, 1, 1, 0.5f));
+            }
+            else
+            {
+                character.characterImage.material.SetColor("_TintColor", new Color(1, 1, 1, 0f));
+            }
+        }
     }
 
     void MeasureHit()
@@ -65,7 +83,7 @@ public class PlayManager : MonoBehaviour
             {
                 if ((Metronome.Instance.measureCount % character.selectedCharacter.measureLength == 0) || (character.selectedCharacter.measureLength == 4 && Metronome.Instance.measureCount == 2 && !character.isPlaying))
                 {
-                    Debug.Log("h");
+                    character.Play();
                 }
             }
         }
@@ -106,5 +124,21 @@ public class PlayManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    IEnumerator Intro()
+    {
+        foreach (CharacterObject character in characters)
+        {
+            character.Visible(false);
+        }
+
+        foreach (CharacterObject character in characters)
+        {
+            character.Visible(true);
+            character.PlayInto();
+            yield return new WaitForSeconds(introTime);
+        }
+        yield return new WaitForSeconds(1);
     }
 }

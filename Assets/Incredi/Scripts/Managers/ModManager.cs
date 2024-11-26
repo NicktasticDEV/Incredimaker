@@ -205,4 +205,19 @@ public class ModManager : MonoBehaviour
         return null;
     }
 
+    public Character GetCharacter(string characterName)
+    {
+        foreach (Mod mod in mods)
+        {
+            foreach (Character character in mod.characters)
+            {
+                if (character.name == characterName)
+                {
+                    return character;
+                }
+            }
+        }
+
+        return null;
+    }
 }
