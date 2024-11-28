@@ -6,7 +6,7 @@
             "path": "idle",
             "frameRate": 24,
             "loop": true,
-            "offset": [0, 0],
+            "offset": [0, 0.32],
             "scale": 1
         },
         {
@@ -14,7 +14,7 @@
             "path": "singing",
             "frameRate": 24,
             "loop": true,
-            "offset": [0, 0],
+            "offset": [0, 0.32],
             "scale": 1
         }
     ]

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Character
 {
     public string name;
-    public int measureLength;
+    public int measureLength = 0;
     public Texture2D thumbnail;
     public AudioClip voice;
     public ImageSequenceAnimations animations;

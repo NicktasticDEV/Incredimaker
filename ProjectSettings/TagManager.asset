@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BPMAudio
   - BPMAudioUnmanaged
+  - DefaultCanvas
   layers:
   - Default
   - TransparentFX

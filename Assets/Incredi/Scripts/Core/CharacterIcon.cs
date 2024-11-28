@@ -37,8 +37,7 @@ public class CharacterIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //PlayManager.instance.iconBeingDragged = true;
-        //PlayManager.instance.selectedCharacter = characterName;
+        PlayManager.instance.iconBeingDragged = true;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -48,6 +47,8 @@ public class CharacterIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        PlayManager.instance.iconBeingDragged = false;
+        
         // Check if icon is over a collider of a character object.
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null)
@@ -58,15 +59,13 @@ public class CharacterIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
             {
                 // Set the character object's selected character to the dragged character
                 characterObject.SetCharacter(ModManager.Instance.GetCharacter(characterName));
+
+                defaultIcon.anchoredPosition = Vector2.zero;
+                return;
             }
         }
 
+        // If icon is not over a character object, move icon back to default position
         LeanTween.move(defaultIcon, Vector2.zero, 0.5f).setEaseOutCubic();
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

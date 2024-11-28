@@ -27,15 +27,21 @@ public class PlayManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        // Subscribe to events
-        Metronome.Instance.onMeasure += MeasureHit;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        // Subscribe to events
+        Metronome.Instance.onMeasure += MeasureHit;
+
         StartCoroutine(Intro());
+    }
+
+    [ContextMenu("Reset All Characters")]
+    public void ResetAllCharacters()
+    {
+        StartCoroutine(Reset());
     }
 
     // Update is called once per frame
@@ -64,7 +70,7 @@ public class PlayManager : MonoBehaviour
         // Highlight character that cursor is over
         foreach (CharacterObject character in characters)
         {
-            if (character.interactCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            if (character.interactCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && iconBeingDragged)
             {
                 character.characterImage.material.SetColor("_TintColor", new Color(1, 1, 1, 0.5f));
             }
@@ -73,6 +79,7 @@ public class PlayManager : MonoBehaviour
                 character.characterImage.material.SetColor("_TintColor", new Color(1, 1, 1, 0f));
             }
         }
+
     }
 
     void MeasureHit()
@@ -83,7 +90,15 @@ public class PlayManager : MonoBehaviour
             {
                 if ((Metronome.Instance.measureCount % character.selectedCharacter.measureLength == 0) || (character.selectedCharacter.measureLength == 4 && Metronome.Instance.measureCount == 2 && !character.isPlaying))
                 {
-                    character.Play();
+                    if (character.selectedCharacter.measureLength == 4 && Metronome.Instance.measureCount == 2 && character.readyToPlay)
+                    {
+                        character.PlayAtHalfTime();
+                        Debug.Log("Half time");
+                    }
+                    else
+                    {
+                        character.Play();
+                    }
                 }
             }
         }
@@ -140,5 +155,14 @@ public class PlayManager : MonoBehaviour
             yield return new WaitForSeconds(introTime);
         }
         yield return new WaitForSeconds(1);
+    }
+
+    IEnumerator Reset()
+    {
+        foreach (CharacterObject character in characters)
+        {
+            character.Reset();
+            yield return new WaitForSeconds(introTime);
+        }
     }
 }

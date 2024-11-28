@@ -46,6 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characters:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   songPlaying: 0
   paused: 0
   measureLength: 4
+  iconBeingDragged: 0
+  selectedCharacter: 
+  introTime: 0.05

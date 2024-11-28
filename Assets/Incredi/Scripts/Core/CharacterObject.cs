@@ -30,6 +30,21 @@ public class CharacterObject : MonoBehaviour
         }
     }
     
+    void Start()
+    {
+        // Set character to default
+        SetCharacter(ModManager.Instance.GetCharacter("Default"));
+    }
+
+    // On mouse click
+    private void OnMouseDown()
+    {
+        // Set character to default
+        if (selectedCharacter.name != "Default")
+        {
+            Reset();
+        }
+    }
 
     void Awake()
     {
@@ -92,6 +107,12 @@ public class CharacterObject : MonoBehaviour
     public void PlayInto()
     {
         animator.Play("Intro");
+    }
+
+    public void Reset()
+    {
+        Stop();
+        animator.Play("Refresh");
     }
 
     public void Visible(bool visible)

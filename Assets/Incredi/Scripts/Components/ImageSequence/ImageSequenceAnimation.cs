@@ -46,6 +46,7 @@ public class ImageSequenceAnimation
         {
             byte[] fileData = System.IO.File.ReadAllBytes(filePaths[i]);
             Texture2D texture = new Texture2D(2, 2);
+            //texture.filterMode = FilterMode.Point;
             texture.LoadImage(fileData);
             frames.Add(texture);
         }

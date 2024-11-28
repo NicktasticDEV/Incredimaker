@@ -22,7 +22,6 @@ public class ImageSequenceAnimator : MonoBehaviour
         {
             StopCoroutine(playCoroutine);
         }
-
         playCoroutine = StartCoroutine(Play(name, startFrame));
     }
 
@@ -127,6 +126,15 @@ public class ImageSequenceAnimator : MonoBehaviour
                 }
 
                 spriteRenderer.sprite = Sprite.Create(animation.frames[frameIndex], new Rect(0, 0, animation.frames[frameIndex].width, animation.frames[frameIndex].height), new Vector2(0.5f, 0.5f));
+
+                // Offset the transformation
+                float xOffset = imageSequenceAnimations.animations.Find(a => a.name == name).offset[0];
+                float yOffset = imageSequenceAnimations.animations.Find(a => a.name == name).offset[1];
+                // Scale
+                float scale = imageSequenceAnimations.animations.Find(a => a.name == name).scale;
+
+                transform.localPosition = new Vector3(xOffset, yOffset, 0);
+                transform.localScale = new Vector3(scale, scale, 1);
 
                 frameIndex++;
                 if (frameIndex >= animation.frames.Count)
