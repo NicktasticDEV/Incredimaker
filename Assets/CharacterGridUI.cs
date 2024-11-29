@@ -10,6 +10,7 @@ public class CharacterGridUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         // For each character in the mod manager, create a new character icon
         foreach (Mod mod in ModManager.Instance.mods)
         {
@@ -21,6 +22,6 @@ public class CharacterGridUI : MonoBehaviour
                 characterIcon.GetComponent<CharacterIcon>().characterName = character.name;
             }
         }
-
+        
     }
 }

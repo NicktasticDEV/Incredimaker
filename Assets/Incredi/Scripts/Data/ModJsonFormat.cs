@@ -21,4 +21,12 @@ public class Mod
     public int songBPM;
     public string path;
     public List<Character> characters;
+    public CharacterSettings characterSettings;
+}
+
+[System.Serializable]
+public class CharacterSettings
+{
+    public string defaultCharacter;
+    public List<string> characterGridOrder;
 }

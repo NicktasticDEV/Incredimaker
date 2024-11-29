@@ -10,6 +10,9 @@ public class PlayManager : MonoBehaviour
     public bool paused = false;
     public int measureLength = 4;
 
+    [SerializeField]
+    private float randomPosY = 0;
+
     public bool iconBeingDragged = false;
     public string selectedCharacter = "";
 
@@ -34,6 +37,10 @@ public class PlayManager : MonoBehaviour
     {
         // Subscribe to events
         Metronome.Instance.onMeasure += MeasureHit;
+        // Set metronome BPM to the first mod's BPM
+        Metronome.Instance.BPM = ModManager.Instance.mods[0].songBPM;
+        Metronome.Instance.defaultBPM = ModManager.Instance.mods[0].songBPM;
+
 
         StartCoroutine(Intro());
     }
@@ -146,6 +153,8 @@ public class PlayManager : MonoBehaviour
         foreach (CharacterObject character in characters)
         {
             character.Visible(false);
+            // Randomize Y position of each character from 0 to randomPosY
+            character.transform.position = new Vector3(character.transform.position.x, Random.Range(0, randomPosY), character.transform.position.z);
         }
 
         foreach (CharacterObject character in characters)
@@ -163,6 +172,7 @@ public class PlayManager : MonoBehaviour
         {
             character.Reset();
             yield return new WaitForSeconds(introTime);
+            character.transform.position = new Vector3(character.transform.position.x, Random.Range(0, randomPosY), character.transform.position.z);
         }
     }
 }
