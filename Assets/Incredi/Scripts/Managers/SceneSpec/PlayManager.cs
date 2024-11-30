@@ -59,9 +59,11 @@ public class PlayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TODO: Move this to MeasureHit() for better performance
         if (Metronome.Instance.measureCount > measureLength)
         {
             Metronome.Instance.Reset();
+            MeasureHitLate();
         }
 
         if (!songPlaying && IsAllCharactersReady() && !paused)
@@ -95,7 +97,7 @@ public class PlayManager : MonoBehaviour
     }
 
     void MeasureHit()
-    {
+    {   
         foreach (CharacterObject character in characters)
         {
             // Play character if character is set

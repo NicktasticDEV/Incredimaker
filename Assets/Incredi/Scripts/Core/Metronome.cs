@@ -122,13 +122,13 @@ public class Metronome : MonoBehaviour
             {
                 onMeasure?.Invoke();  // Trigger onMeasure event
                 measureCount++;
-                onMeasureLate?.Invoke();  // Trigger onMeasureLate event
-
 
                 if (playSound && measureSound != null)
                 {
                     AudioSource.PlayClipAtPoint(measureSound, transform.position);
                 }
+                
+                onMeasureLate?.Invoke();  // Trigger onMeasureLate event
             }
         }
     }

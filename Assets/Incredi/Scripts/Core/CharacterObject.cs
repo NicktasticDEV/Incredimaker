@@ -42,6 +42,8 @@ public class CharacterObject : MonoBehaviour
         if (selectedCharacter.name != "Default")
         {
             Reset();
+            // Move transform up
+            transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
         }
     }
 
@@ -69,8 +71,10 @@ public class CharacterObject : MonoBehaviour
         {
             characterSet = true;
             readyToPlay = true;
+            animator.Play("Changed");
         }
 
+        Debug.Log($"Character set to {character.name}");
         selectedCharacter = character;
     }
 
