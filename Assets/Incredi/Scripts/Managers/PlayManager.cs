@@ -37,10 +37,15 @@ public class PlayManager : MonoBehaviour
     {
         // Subscribe to events
         Metronome.Instance.onMeasure += MeasureHit;
-        // Set metronome BPM to the first mod's BPM
+        Metronome.Instance.onMeasureLate += MeasureHitLate;
+
         Metronome.Instance.BPM = ModManager.Instance.mods[0].songBPM;
         Metronome.Instance.defaultBPM = ModManager.Instance.mods[0].songBPM;
 
+        foreach (CharacterObject character in characters)
+        {
+            character.SetCharacter(ModManager.Instance.GetCharacter("Default"));
+        }
 
         StartCoroutine(Intro());
     }
@@ -93,24 +98,58 @@ public class PlayManager : MonoBehaviour
     {
         foreach (CharacterObject character in characters)
         {
+            // Play character if character is set
             if (character.characterSet)
             {
-                if ((Metronome.Instance.measureCount % character.selectedCharacter.measureLength == 0) || (character.selectedCharacter.measureLength == 4 && Metronome.Instance.measureCount == 2 && !character.isPlaying))
+                // Character with measure length of 1
+                if (character.selectedCharacter.measureLength == 1)
                 {
-                    if (character.selectedCharacter.measureLength == 4 && Metronome.Instance.measureCount == 2 && character.readyToPlay)
-                    {
-                        character.PlayAtHalfTime();
-                        Debug.Log("Half time");
-                    }
-                    else
+                    if (Metronome.Instance.measureCount % 1 == 0)
                     {
                         character.Play();
+                    }
+                }
+                // Character with measure length of 2
+                else if (character.selectedCharacter.measureLength == 2)
+                {
+                    if (Metronome.Instance.measureCount % 2 == 0)
+                    {
+                        character.Play();
+                    }
+                }
+                // Character with measure length of 4
+                else if (character.selectedCharacter.measureLength == 4)
+                {
+                    if (Metronome.Instance.measureCount % 4 == 0)
+                    {
+                        character.Play();
+                    }
+                    else if (Metronome.Instance.measureCount % 4 == 2)
+                    {
+                        character.PlayAtHalfTime();
+                    }
+                }
+                // Character with measure length of 8
+                else if (character.selectedCharacter.measureLength == 8)
+                {
+                    if (Metronome.Instance.measureCount % 8 == 0)
+                    {
+                        character.Play();
+                    }
+                    else if (Metronome.Instance.measureCount % 8 == 4)
+                    {
+                        character.PlayAtHalfTime();
                     }
                 }
             }
         }
     }
 
+    void MeasureHitLate()
+    {
+
+    }
+    
     public void pause()
     {
         foreach (CharacterObject character in characters)

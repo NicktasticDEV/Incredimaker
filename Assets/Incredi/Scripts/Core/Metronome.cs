@@ -25,6 +25,7 @@ public class Metronome : MonoBehaviour
     public event Action onBeat;
     public event Action onStep;
     public event Action onMeasure;
+    public event Action onMeasureLate;
     public event Action<int> onBPMChange;
     public event Action onReset;
     public event Action onPlay;
@@ -99,8 +100,8 @@ public class Metronome : MonoBehaviour
 
     private void PlayStep()
     {
-        onStep?.Invoke();  // Trigger onStep event
         stepCount++;
+        onStep?.Invoke();  // Trigger onStep event
 
         if (playSound && stepSound != null)
         {
@@ -109,8 +110,8 @@ public class Metronome : MonoBehaviour
 
         if (stepCount % stepsPerBeat == 1)
         {
-            onBeat?.Invoke();     // Trigger onBeat event
             beatCount++;
+            onBeat?.Invoke();     // Trigger onBeat event
 
             if (playSound && beatSound != null)
             {
@@ -121,6 +122,8 @@ public class Metronome : MonoBehaviour
             {
                 onMeasure?.Invoke();  // Trigger onMeasure event
                 measureCount++;
+                onMeasureLate?.Invoke();  // Trigger onMeasureLate event
+
 
                 if (playSound && measureSound != null)
                 {

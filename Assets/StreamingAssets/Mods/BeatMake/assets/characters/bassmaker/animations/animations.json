@@ -1,0 +1,21 @@
+{
+    "animations":
+    [
+        {
+            "name": "idle",
+            "path": "idle",
+            "frameRate": 24,
+            "loop": true,
+            "offset": [0, 0],
+            "scale": 1
+        },
+        {
+            "name": "singing",
+            "path": "singing",
+            "frameRate": 24,
+            "loop": true,
+            "offset": [0, 0],
+            "scale": 1
+        }
+    ]
+}

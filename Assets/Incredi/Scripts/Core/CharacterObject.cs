@@ -32,8 +32,7 @@ public class CharacterObject : MonoBehaviour
     
     void Start()
     {
-        // Set character to default
-        SetCharacter(ModManager.Instance.GetCharacter("Default"));
+
     }
 
     // On mouse click
@@ -91,9 +90,14 @@ public class CharacterObject : MonoBehaviour
         if (readyToPlay)
         {
             isPlaying = true;
-            imageSequenceAnimator.PlayAnimation("singing", imageSequenceAnimator.GetFrameLength("singing") / 2);
-            audioSource.time = audioSource.clip.length / 2;
+            int halfFrame = imageSequenceAnimator.GetFrameLength("singing") / 2;
+            float halfTime = audioSource.clip.length / 2;
+
+            //Debug.Log($"Playing at half frame: {halfFrame}, half time: {halfTime}");
+
+            imageSequenceAnimator.PlayAnimation("singing", halfFrame);
             audioSource.Play();
+            audioSource.time = halfTime;
         }
     }
 
