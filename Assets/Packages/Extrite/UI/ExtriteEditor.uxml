@@ -1,0 +1,4 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Extrite/UI/ExtriteEditor.uss?fileID=7433441132597879392&amp;guid=7e805b070645f45a99046c3b76877cb4&amp;type=3#ExtriteEditor" />
+    <engine:VisualElement name="VisualElement" style="flex-grow: 1;" />
+</engine:UXML>
