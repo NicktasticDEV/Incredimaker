@@ -1,7 +1,9 @@
 {
     "name": "Extrite.Editor",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:c8cadde7f67404e58b7ab06f7db92131"
+    ],
     "includePlatforms": [
         "Editor"
     ],

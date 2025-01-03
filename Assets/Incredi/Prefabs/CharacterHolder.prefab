@@ -155,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 4740906347284751757}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.16, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -303,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170143064915573911}
   - component: {fileID: 6390631661177951346}
-  - component: {fileID: 7465852564310850681}
+  - component: {fileID: 5590839602617452782}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -377,8 +377,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &7465852564310850681
+  m_SpriteSortPoint: 1
+--- !u!114 &5590839602617452782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,9 +387,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7956984843582983187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0221f4d0fdedbf4189a5ae715ae689e, type: 3}
+  m_Script: {fileID: 11500000, guid: 906e7409039a644f9b688453a34c48df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animations: []
-  imageSequenceAnimations:
-    animations: []
+  preloadAnimationPack: 1
+  sparrowAnimationPack: {fileID: 0}

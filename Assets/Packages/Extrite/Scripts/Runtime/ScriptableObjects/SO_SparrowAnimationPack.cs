@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using Extrite;
 using System;
+using System.IO;
+using System.Text;
+using System.IO.Compression;
 
 [CreateAssetMenu(fileName = "SparrowAnimationPack", menuName = "Extrite/Sparrow Animation Pack", order = 1)]
 public class SO_SparrowAnimationPack : ScriptableObject
 {
-    public SparrowFilePack sparrowFilePack;
+
+    public Texture2D texture;
+    public TextAsset atlas;
+
     public Vector2 globalOffset;
     public Extrite.Animation[] animations;
 
@@ -29,7 +35,7 @@ public class SO_SparrowAnimationPack : ScriptableObject
 
     public SubTexture[] GetSubTexturesFromAnimation(Extrite.Animation animation)
     {
-        TextureAtlas textureAtlas = (TextureAtlas)serializer.Deserialize(new System.IO.StringReader(sparrowFilePack.atlas.text));
+        TextureAtlas textureAtlas = (TextureAtlas)serializer.Deserialize(new System.IO.StringReader(atlas.text));
 
         // Get all Subtextures from the animation that have the prefix defined in the animation
         List<SubTexture> subTextures = new List<SubTexture>();
@@ -44,4 +50,14 @@ public class SO_SparrowAnimationPack : ScriptableObject
 
         return subTextures.ToArray();
     }
+
+    #if UNITY_EDITOR
+    [ContextMenu("Export Animation Pack")]
+    public void ExportAnimationPack()
+    {
+        string path = UnityEditor.EditorUtility.SaveFilePanel("Save Animation Pack", "", "animationPack", "esac");
+        Extrite.Utilities.ExportSparrowAnimationPack(this, path);
+    }
+    #endif
+
 }
