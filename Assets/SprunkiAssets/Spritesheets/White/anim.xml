@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="anim.png">
+	<!-- Created with Adobe Animate version 24.0.7.61 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="White-Idle0000" x="5" y="654" width="202" height="314" frameX="0" frameY="0" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0000" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0001" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0002" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0003" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0004" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0005" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0006" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0007" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0008" x="212" y="5" width="202" height="316" frameX="-4" frameY="-4" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0009" x="212" y="5" width="202" height="316" frameX="-4" frameY="-4" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0010" x="5" y="330" width="202" height="319" frameX="-4" frameY="-1" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0011" x="5" y="330" width="202" height="319" frameX="-4" frameY="-1" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0012" x="5" y="5" width="202" height="320" frameX="-4" frameY="0" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0013" x="5" y="5" width="202" height="320" frameX="-4" frameY="0" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0014" x="626" y="638" width="201" height="312" frameX="0" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0015" x="212" y="644" width="202" height="312" frameX="-1" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0016" x="212" y="644" width="202" height="312" frameX="-1" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0017" x="419" y="323" width="202" height="312" frameX="-2" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0018" x="419" y="323" width="202" height="312" frameX="-2" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0019" x="212" y="326" width="202" height="313" frameX="-3" frameY="-7" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0020" x="212" y="326" width="202" height="313" frameX="-3" frameY="-7" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0021" x="212" y="326" width="202" height="313" frameX="-3" frameY="-7" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0022" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0023" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0024" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0025" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0026" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0027" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0028" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0029" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0030" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0031" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0032" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0033" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0034" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0035" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0036" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0037" x="212" y="5" width="202" height="316" frameX="-4" frameY="-4" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0038" x="212" y="5" width="202" height="316" frameX="-4" frameY="-4" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0039" x="5" y="330" width="202" height="319" frameX="-4" frameY="-1" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0040" x="5" y="330" width="202" height="319" frameX="-4" frameY="-1" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0041" x="5" y="5" width="202" height="320" frameX="-4" frameY="0" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0042" x="5" y="5" width="202" height="320" frameX="-4" frameY="0" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0043" x="626" y="5" width="203" height="311" frameX="-7" frameY="-9" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0044" x="626" y="321" width="202" height="312" frameX="-7" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0045" x="626" y="321" width="202" height="312" frameX="-7" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0046" x="419" y="640" width="202" height="312" frameX="-6" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0047" x="419" y="640" width="202" height="312" frameX="-6" frameY="-8" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0048" x="419" y="5" width="202" height="313" frameX="-5" frameY="-7" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0049" x="419" y="5" width="202" height="313" frameX="-5" frameY="-7" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0050" x="419" y="5" width="202" height="313" frameX="-5" frameY="-7" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0051" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0052" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0053" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0054" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0055" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+	<SubTexture name="White-Singing0056" x="5" y="654" width="202" height="314" frameX="-4" frameY="-6" frameWidth="210" frameHeight="320"/>
+</TextureAtlas>

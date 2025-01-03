@@ -5,22 +5,24 @@ using UnityEngine;
 public class PlayManager : MonoBehaviour
 {
     public static PlayManager instance;
+
+    [Header("Settings")]
+    [SerializeField] private float randomPosY = 0;
+    [SerializeField] private float introTime = 1.5f;
+
+    [Header("Character Objects")]
     public List<CharacterObject> characters = new List<CharacterObject>();
-    public bool songPlaying = false;
-    public bool paused = false;
-    public int measureLength = 4;
 
-    [SerializeField]
-    private float randomPosY = 0;
-
-    public bool iconBeingDragged = false;
-    public string selectedCharacter = "";
-
-    [SerializeField]
-    private float introTime = 1.5f;
+    // Game Variables
+    [HideInInspector] public bool songPlaying = false;
+    [HideInInspector] public bool paused = false;
+    [HideInInspector] public int measureLength = 4;
+    [HideInInspector] public bool iconBeingDragged = false;
+    [HideInInspector] public string selectedCharacter = "";
     
     void Awake()
     {
+        // Make this a singleton
         if (instance == null)
         {
             instance = this;
@@ -32,40 +34,25 @@ public class PlayManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         // Subscribe to events
         Metronome.Instance.onMeasure += MeasureHit;
-        Metronome.Instance.onMeasureLate += MeasureHitLate;
 
+        // Set the BPM of the metronome to the song's BPM
         Metronome.Instance.BPM = ModManager.Instance.mods[0].songBPM;
         Metronome.Instance.defaultBPM = ModManager.Instance.mods[0].songBPM;
 
-        foreach (CharacterObject character in characters)
-        {
-            character.SetCharacter(ModManager.Instance.GetCharacter("Default"));
-        }
+        // Set each character to the default character
+        foreach (CharacterObject character in characters) { character.SetCharacter(ModManager.Instance.GetCharacter("Default")); }
 
-        StartCoroutine(Intro());
+        // Start the character animation intro
+        StartCoroutine(CharacterAnimationIntro());
     }
 
-    [ContextMenu("Reset All Characters")]
-    public void ResetAllCharacters()
-    {
-        StartCoroutine(Reset());
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        //TODO: Move this to MeasureHit() for better performance
-        if (Metronome.Instance.measureCount > measureLength)
-        {
-            Metronome.Instance.Reset();
-            MeasureHitLate();
-        }
-
+        // Play song if all characters are ready
         if (!songPlaying && IsAllCharactersReady() && !paused)
         {
             Metronome.Instance.Reset();
@@ -76,6 +63,7 @@ public class PlayManager : MonoBehaviour
             songPlaying = true;
         }
         
+        // Stop song if not all characters are ready
         if (!IsAllCharactersReady())
         {
             songPlaying = false;
@@ -93,11 +81,11 @@ public class PlayManager : MonoBehaviour
                 character.characterImage.material.SetColor("_TintColor", new Color(1, 1, 1, 0f));
             }
         }
-
     }
 
     void MeasureHit()
     {   
+        // Play character on measure hit
         foreach (CharacterObject character in characters)
         {
             // Play character if character is set
@@ -146,11 +134,6 @@ public class PlayManager : MonoBehaviour
             }
         }
     }
-
-    void MeasureHitLate()
-    {
-
-    }
     
     public void pause()
     {
@@ -158,6 +141,7 @@ public class PlayManager : MonoBehaviour
         {
             character.Stop();
         }
+        paused = true;
     }
 
     public void play()
@@ -165,6 +149,12 @@ public class PlayManager : MonoBehaviour
         paused = false;
     }
 
+    public void ResetAllCharacters()
+    {
+        StartCoroutine(ResetCharacters());
+    }
+
+    // Checks if all characters are ready to play
     private bool IsAllCharactersReady()
     {
         int readyCharacters = 0;
@@ -189,7 +179,8 @@ public class PlayManager : MonoBehaviour
         return true;
     }
 
-    IEnumerator Intro()
+    // Character animation intro
+    IEnumerator CharacterAnimationIntro()
     {
         foreach (CharacterObject character in characters)
         {
@@ -207,7 +198,8 @@ public class PlayManager : MonoBehaviour
         yield return new WaitForSeconds(1);
     }
 
-    IEnumerator Reset()
+    // Resets all characters to default character and randomizes Y position
+    IEnumerator ResetCharacters()
     {
         foreach (CharacterObject character in characters)
         {

@@ -1840,6 +1840,10 @@ PrefabInstance:
       value: PlayManager
       objectReference: {fileID: 0}
     - target: {fileID: 2025164559755832448, guid: 6d0a5abff47e04d3c9340c805456cb94, type: 3}
+      propertyPath: randomPosY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025164559755832448, guid: 6d0a5abff47e04d3c9340c805456cb94, type: 3}
       propertyPath: characters.Array.data[0]
       value: 
       objectReference: {fileID: 645078821}

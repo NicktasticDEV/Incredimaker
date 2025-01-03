@@ -46,6 +46,7 @@ namespace Extrite
             #endif 
         }
 
+        #if UNITY_EDITOR
         void OnExitPlayMode(PlayModeStateChange state)
         {
             if (state == PlayModeStateChange.ExitingPlayMode)
@@ -53,6 +54,7 @@ namespace Extrite
                 preloadedAnimations.Clear();
             }
         }
+        #endif
 
         void Update()
         {

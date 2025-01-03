@@ -32,7 +32,7 @@ public class ModManager : MonoBehaviour
             Destroy(gameObject);  // Destroy duplicate instances
         }
 
-        loadSpecificMod("ModExample");
+        loadSpecificMod("Sprunki");
     }
 
     void loadSpecificMod(string folderName)

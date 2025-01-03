@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.smkplus.custom-toolbar": {
+      "version": "https://github.com/smkplus/CustomToolbar.git#master",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c004b53cea7b9be01879be0e5b948700f21cf82b"
+    },
     "com.unity.2d.animation": {
       "version": "9.1.1",
       "depth": 1,
