@@ -54,7 +54,8 @@ MonoBehaviour:
   - {fileID: 0}
   songPlaying: 0
   paused: 0
-  measureLength: 4
+  measureLength: 8
+  randomPosY: -0.2
   iconBeingDragged: 0
   selectedCharacter: 
-  introTime: 0.05
+  introTime: 0.02

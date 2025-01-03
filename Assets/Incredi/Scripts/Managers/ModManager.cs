@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Extrite;
 
 public class ModManager : MonoBehaviour
 {
     public static ModManager Instance;  // Singleton instance
 
     // Paths
-    string modsPath = Application.streamingAssetsPath + "/Mods";
+    string modsPath;
     
-    public List<Mod> mods = new List<Mod>();  // List of mods
+    // List of mods
+    public List<Mod> mods = new List<Mod>();
+
+    // Settings
+    [Header("Settings")]
+    [SerializeField]
+    private bool preloadAllAnimations = true;
 
     void Awake()
     {
+        modsPath = Application.persistentDataPath + "/Mods";
+
         if (Instance == null)
         {
             Instance = this;
@@ -73,9 +82,10 @@ public class ModManager : MonoBehaviour
         {
             // Paths
             string characterMetadataPath = characterFolder + "/metadata.json";
-            string characterAnimationPath = characterFolder + "/animations";
+            //string characterAnimationPath = characterFolder + "/animations";
+            string characterAnimationPath = characterFolder + "/animations.esap";
             string thumbnailPath = characterFolder + "/thumbnail.png";
-            string animationMetadataPath = characterAnimationPath + "/animations.json";
+            //string animationMetadataPath = characterAnimationPath + "/animations.json";
 
             // Check if character metadata exists
             if (!System.IO.File.Exists(characterMetadataPath))
@@ -85,7 +95,7 @@ public class ModManager : MonoBehaviour
             }
 
             // Check if character animations exist
-            if (!System.IO.Directory.Exists(characterAnimationPath))
+            if (!System.IO.File.Exists(characterAnimationPath))
             {
                 Debug.LogError("Character animations directory does not exist at: " + characterAnimationPath);
                 continue;
@@ -98,12 +108,17 @@ public class ModManager : MonoBehaviour
                 continue;
             }
 
+            /*
             // Check if animation metadata exists
             if (!System.IO.File.Exists(animationMetadataPath))
             {
                 Debug.LogError("Animation metadata file does not exist at: " + animationMetadataPath);
                 continue;
             }
+            */
+
+            // Load animations
+            
 
             // Load Character Metadata
             string characterMetadataJson = System.IO.File.ReadAllText(characterMetadataPath);
@@ -131,6 +146,7 @@ public class ModManager : MonoBehaviour
             AudioClip voice = LoadExternalAudio.LoadAudioClip(voicePath);
             characterMetadata.voice = voice;
 
+            /*
             // Load animations
             string animationMetadataJson = System.IO.File.ReadAllText(animationMetadataPath);
             ImageSequenceAnimations animations = JsonUtility.FromJson<ImageSequenceAnimations>(animationMetadataJson);
@@ -146,6 +162,16 @@ public class ModManager : MonoBehaviour
             }
 
             characterMetadata.animations = animations;
+            */
+
+            // Load Extrite Animations
+            characterMetadata.extriteAnimations = Extrite.Utilities.ImportSparrowAnimationPack(characterAnimationPath);
+
+            if (preloadAllAnimations)
+            {
+                Extrite.SparrowRenderer.PreloadSpecificAnimationPack(characterMetadata.extriteAnimations);
+            }
+
             characters.Add(characterMetadata);
 
             Debug.Log("Character loaded: " + characterMetadata.name);

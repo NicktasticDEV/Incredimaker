@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Extrite;
 
 // Character Data
 [System.Serializable]
@@ -10,6 +11,7 @@ public class Character
     public Texture2D thumbnail;
     public AudioClip voice;
     public ImageSequenceAnimations animations;
+    public SO_SparrowAnimationPack extriteAnimations;
 }
 
 [System.Serializable]

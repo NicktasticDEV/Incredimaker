@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Extrite;
 using UnityEngine;
 
 public class CharacterObject : MonoBehaviour
@@ -8,6 +9,7 @@ public class CharacterObject : MonoBehaviour
     [HideInInspector]
     public SpriteRenderer characterImage;
     private ImageSequenceAnimator imageSequenceAnimator;
+    private SparrowRenderer sparrowRenderer;
     [SerializeField]
     private Animator animator;
     [HideInInspector]
@@ -52,12 +54,14 @@ public class CharacterObject : MonoBehaviour
         audioSource = GetComponentInChildren<AudioSource>();
         characterImage = GetComponentInChildren<SpriteRenderer>();
         imageSequenceAnimator = GetComponentInChildren<ImageSequenceAnimator>();
+        sparrowRenderer = GetComponentInChildren<SparrowRenderer>();
         interactCollider = GetComponentInChildren<Collider2D>();
     }
 
     public void SetCharacter(Character character)
     {
-        imageSequenceAnimator.imageSequenceAnimations = character.animations;
+        // imageSequenceAnimator.imageSequenceAnimations = character.animations;
+        sparrowRenderer.sparrowAnimationPack = character.extriteAnimations;
         audioSource.clip = character.voice;
         Stop();
 
@@ -83,7 +87,8 @@ public class CharacterObject : MonoBehaviour
         if (readyToPlay)
         {
             isPlaying = true;
-            imageSequenceAnimator.PlayAnimation("singing", startFrame);
+            //imageSequenceAnimator.PlayAnimation("singing", startFrame);
+            sparrowRenderer.Play("singing", startFrame);
             audioSource.time = audioTime;
             audioSource.Play();
         }
@@ -94,12 +99,14 @@ public class CharacterObject : MonoBehaviour
         if (readyToPlay)
         {
             isPlaying = true;
-            int halfFrame = imageSequenceAnimator.GetFrameLength("singing") / 2;
+            //int halfFrame = imageSequenceAnimator.GetFrameLength("singing") / 2;
+            int halfFrame = sparrowRenderer.GetFrameLength("singing") / 2;
             float halfTime = audioSource.clip.length / 2;
 
             //Debug.Log($"Playing at half frame: {halfFrame}, half time: {halfTime}");
 
-            imageSequenceAnimator.PlayAnimation("singing", halfFrame);
+            //imageSequenceAnimator.PlayAnimation("singing", halfFrame);
+            sparrowRenderer.Play("singing", halfFrame);
             audioSource.Play();
             audioSource.time = halfTime;
         }
@@ -108,7 +115,8 @@ public class CharacterObject : MonoBehaviour
     public void Stop()
     {
         isPlaying = false;
-        imageSequenceAnimator.PlayAnimation("idle");
+        //imageSequenceAnimator.PlayAnimation("idle");
+        sparrowRenderer.Play("idle");
         audioSource.Stop();
     }
 

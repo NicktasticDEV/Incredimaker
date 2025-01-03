@@ -1,0 +1,26 @@
+.logo {
+    font-size: 47px;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    text-shadow: -10px 10px 0 rgb(0, 0, 0);
+}
+
+.mainView {
+    width: 573px;
+    justify-content: flex-start;
+    align-self: center;
+}
+
+.buttons {
+    height: 32px;
+    font-size: 21px;
+    -unity-text-align: middle-center;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+.labler {
+    -unity-text-align: upper-center;
+    font-size: 25px;
+    margin-top: 25px;
+}
