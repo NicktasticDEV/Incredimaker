@@ -6,7 +6,7 @@ using System.IO;
 
 public class IncredimodProjectTools : EditorWindow
 {
-    [MenuItem("Incredimod/Open Persistent Data Folder")]
+    [MenuItem("Incredimaker/Open Persistent Data Folder")]
     public static void OpenPersistentDataFolder()
     {
         string path = Application.persistentDataPath;

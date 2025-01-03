@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Incredi/Scenes/WebInit.unity
+    guid: b3f07376bb30e43bfb9978e4c0739b05
+  - enabled: 0
     path: Assets/Incredi/Scenes/Game.unity
     guid: d12121d382a6b0b4a9c65d602c00060b
   m_configObjects: {}
