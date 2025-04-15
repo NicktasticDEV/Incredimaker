@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b5ad27eafb05f498db6a933bb36689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 120
+  bpm: 140
   beatsPerMeasure: 4
   subBeatsPerBeat: 4
   schedulingAheadTime: 0.1
@@ -301,7 +301,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 96062f523e3e94d47becc03010aceea1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 13f2f0b1ce8524047959e91f0699cd8e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -414,10 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c2ad5e1b2bbfc4baa78b49439c2733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatClip: {fileID: 8300000, guid: 1c6b0f4e92c0bdf498fec8d367da98d4, type: 3}
+  beatClip: {fileID: 0}
   subBeatClip: {fileID: 0}
   measureClip: {fileID: 8300000, guid: 21598a04554384e4892fb83401da71c9, type: 3}
-  musicClip: {fileID: 8300000, guid: aa126595cba4eab4f821acfeff18c2a6, type: 3}
+  musicClip: {fileID: 8300000, guid: 13f2f0b1ce8524047959e91f0699cd8e, type: 3}
 --- !u!1 &329843061
 GameObject:
   m_ObjectHideFlags: 0

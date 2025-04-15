@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    
+    "bpm": 145,
+    "loopPoints": 
+    [
+        { "file": "0.wav", "startMeasure": 1, "length": 1 },
+        { "file": "1.wav", "startMeasure": 2, "length": 1 },
+        { "file": "2.wav", "startMeasure": 3, "length": 1 },
+        { "file": "3.wav", "startMeasure": 4, "length": 1 },
+        { "file": "4.wav", "startMeasure": 5, "length": 1 },
+        { "file": "5.wav", "startMeasure": 6, "length": 1 },
+		{ "file": "6.wav", "startMeasure": 7, "length": 1 },
+        { "file": "7.wav", "startMeasure": 8, "length": 1 }
+    ]
+}
+  

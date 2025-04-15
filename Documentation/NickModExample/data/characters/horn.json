@@ -1,0 +1,11 @@
+{
+    "version": "1.0.0",
+
+    "name": "Horn",
+    "description": "It sounds like a horn",
+    "song":
+    {
+        "type": "structure",
+        "path": "mod://audio/performers/horn/structure.json"
+    }
+}
