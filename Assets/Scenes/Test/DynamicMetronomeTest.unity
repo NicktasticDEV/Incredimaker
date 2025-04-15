@@ -418,6 +418,7 @@ MonoBehaviour:
   subBeatClip: {fileID: 0}
   measureClip: {fileID: 8300000, guid: 21598a04554384e4892fb83401da71c9, type: 3}
   musicClip: {fileID: 8300000, guid: 13f2f0b1ce8524047959e91f0699cd8e, type: 3}
+  defaultBPM: 140
 --- !u!1 &329843061
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,11 +1,15 @@
 {
     "version": "1.0.0",
-
     "name": "Horn",
     "description": "It sounds like a horn",
     "song":
     {
         "type": "structure",
         "path": "mod://audio/performers/horn/structure.json"
+    },
+    "icon":
+    {
+        "available": "mod://images/performers/horn/icon/available.png",
+        "used": "mod://images/performers/horn/icon/used.png"
     }
 }

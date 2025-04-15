@@ -30,7 +30,6 @@ namespace Incredimaker
         public event Action onStep;
         public event Action onMeasure;
         public event Action<int> onBPMChange;
-        public event Action onReset;
         public event Action onPlay;
         public event Action onPause;
         
