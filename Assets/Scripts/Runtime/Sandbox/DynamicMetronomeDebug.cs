@@ -14,6 +14,9 @@ namespace Incredimaker
         public AudioClip measureClip;
         public AudioClip musicClip;
 
+        [Range(0f, 1f)]
+        public float volume = 1.0f;
+
         private bool hasStarted = false;
         [SerializeField] private float defaultBPM = 120f;
 
