@@ -1,0 +1,9 @@
+{
+    "version": "1.0.0",
+    "name": "NickModExample",
+    "description": "An example mod for Nick",
+    "credits":
+    [
+        { "name": "NicktasticToons", "description":"Programmer", "url": "https://nicktastictoons.com" }
+    ]
+}

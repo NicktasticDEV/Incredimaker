@@ -1,0 +1,9 @@
+{
+    "version": "1.0.0",
+    "name": "Nick Mod Example",
+    "description": "An example mod for Incredimaker",
+    "credits":
+    [
+        { "name": "NicktasticToons", "description":"Everything", "url": "https://nicktastictoons.com" }
+    ]
+}
